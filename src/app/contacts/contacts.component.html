@@ -1,3 +1,16 @@
 <div class="contacts-window">
-  <p>contacts works! {{ contacts[0].contact.name }}</p>
+  <ng-container *ngFor="let chat of chats">
+    <div class="contact-pill text-white d-flex">
+      <div class="profile-pic f-30">
+        <img class="w-100" src="{{chat.contact.profile_pic}}" alt="">
+      </div>
+      <div class="f-70">
+        <div class="upper-line d-flex justify-content-between">
+          <span class="name">{{ chat.contact.name }}</span>
+          <span class="last_time small">{{ chat.last_message.date | date : 'EEEE' : 'GMT' : 'de' }}</span>
+        </div>
+        <div class="lower-line"> {{ chat.last_message.message }}</div>
+      </div>
+    </div>
+  </ng-container>
 </div>

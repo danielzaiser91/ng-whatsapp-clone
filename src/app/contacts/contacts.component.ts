@@ -7,7 +7,7 @@ import { chat as sample_chat } from '../sample_chat';
   styleUrls: ['./contacts.component.sass']
 })
 export class ContactsComponent implements OnInit {
-  contacts = sample_chat;
+  chats = sample_chat;
 
   constructor() { }
 
