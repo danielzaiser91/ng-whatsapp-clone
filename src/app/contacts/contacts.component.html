@@ -1,15 +1,20 @@
-<div class="contacts-window">
+<div class="contacts-window h-100">
   <ng-container *ngFor="let chat of chats">
     <div class="contact-pill text-white d-flex">
-      <div class="profile-pic f-30">
-        <img class="w-100" src="{{chat.contact.profile_pic}}" alt="">
+      <div class="profile-pic f-20">
+        <img class="h-100" src="{{ chat.contact.profile_pic }}" alt="">
       </div>
-      <div class="f-70">
+      <div class="d-flex f-70 flex-column justify-content-center">
         <div class="upper-line d-flex justify-content-between">
           <span class="name">{{ chat.contact.name }}</span>
-          <span class="last_time small">{{ chat.last_message.date | date : 'EEEE' : 'GMT' : 'de' }}</span>
+          <span class="last-time small pr-3">{{ chat.last_message.date | date : 'EEEE' : 'GMT' : 'de' }}</span>
         </div>
-        <div class="lower-line"> {{ chat.last_message.message }}</div>
+        <div class="lower-line">
+          <span class="last-message">{{ chat.last_message.message }}</span>
+          <span class="options-icons small pr-3">
+            <!-- mute icon und options-icon (mit dropdown) einfügen -->
+          </span>
+        </div>
       </div>
     </div>
   </ng-container>
