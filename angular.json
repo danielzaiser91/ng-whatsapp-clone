@@ -33,7 +33,14 @@
             "styles": [
               "src/styles.sass"
             ],
-            "scripts": ["src/assets/js/deepCopy.ts"]
+            "scripts": [
+              "src/assets/js/deepCopy.ts"
+            ],
+            "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/assets/stylesheets/"
+                ]
+              }
           },
           "configurations": {
             "production": {

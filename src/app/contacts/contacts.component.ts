@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
   @Input() chats: any[] = [];
+  @Input() active_id: number = 0;
+
   @Output() clickedChatEvent = new EventEmitter;
 
   constructor() { }

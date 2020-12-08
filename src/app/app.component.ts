@@ -11,6 +11,8 @@ import { chat as sample_chat } from './sample_chat';
 export class AppComponent implements OnInit {
   chats: any[] = [];
   title = 'ng-whatsapp';
+  active_id = 3;
+
   ngOnInit() {
     const sample = sample_chat[0];
     Array(10).fill(0).map((_,i)=>{

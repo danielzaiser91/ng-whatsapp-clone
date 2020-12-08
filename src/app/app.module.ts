@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ChatComponent } from './chat/chat.component';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 registerLocaleData(localeDe);
 
@@ -19,7 +21,9 @@ registerLocaleData(localeDe);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule, 
+    AngularSvgIconModule.forRoot()
   ],
   providers: [
     DatePipe,

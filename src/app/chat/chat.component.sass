@@ -1,5 +1,27 @@
+@import "ng-whatsapp-clone-variables"
+
 .chat-window-outer
-  background-color: #0d1418
+  background-color: $chat-window-bg-color
   .chat-window-inner
+    padding: 10px 5%
+  .chat-bg
     opacity: 0.06
     background-image: url("/assets/images/background/chat-bg-1.png")
+  .chat-message
+    align-self: flex-start
+    margin: 8px 0
+    min-width: 100px
+    max-width: 500px
+  .send-by-me
+    background-color: $chat-color-me
+    svg-icon
+      top: -5px
+      right: -8px
+      color: $chat-color-me
+  .send-by-them
+    background-color: $chat-color-them
+    svg-icon
+      transform: rotateY(180deg)
+      top: -5px
+      left: -8px
+      color: $chat-color-them

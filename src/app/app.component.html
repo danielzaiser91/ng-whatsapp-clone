@@ -1,4 +1,4 @@
 <div class="d-flex h-100">
-  <app-contacts [chats]="chats" (clickedChatEvent)="clickedChat()" class="f-30"></app-contacts>
-  <app-chat [chats]="chats" class="f-70"></app-chat>
+  <app-contacts [chats]="chats" [active_id]="active_id" (clickedChatEvent)="clickedChat()" class="f-30"></app-contacts>
+  <app-chat [chats]="chats" [active_id]="active_id" class="f-70"></app-chat>
 </div>
