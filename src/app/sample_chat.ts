@@ -32,7 +32,7 @@ export const chat = [
       last_message: {
         send_by: 0,
         message: 'Nur so :)',
-        date: new Date('December 07, 2020 18:39:59'),
+        date: new Date('December 08, 2020 18:39:59'),
         status: 3
       }
     }

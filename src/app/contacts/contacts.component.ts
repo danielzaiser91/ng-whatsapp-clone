@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { isThisWeek, isToday, startOfWeek } from 'date-fns'
 
 @Component({
   selector: 'app-contacts',
@@ -17,5 +18,12 @@ export class ContactsComponent implements OnInit {
 
   clickedChat(chat_id: number) {
     this.clickedChatEvent.emit(chat_id)
+  }
+
+  public dateBefore(date: Date): number {
+    if(isToday(date)) return 1;
+    if(isThisWeek(date)) return 2;
+    if(date < startOfWeek(Date.now())) return 3;
+    else return 0;
   }
 }

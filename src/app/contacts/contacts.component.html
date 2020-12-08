@@ -8,7 +8,11 @@
         <div class="contact-text-container d-flex f-70 flex-column justify-content-center">
           <div class="upper-line d-flex justify-content-between">
             <span class="name">{{ chat_data.chat.contact.name }}{{chat_data.chat.contact.id}}</span>
-            <span class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'EEEE' : 'GMT' : 'de' }}</span>
+            <ng-container [ngSwitch]="dateBefore(chat_data.chat.last_message.date)">
+              <span *ngSwitchCase="1" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'HH:mm' : 'UTC+1' : 'de' }}</span>
+              <span *ngSwitchCase="2" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'EEEE' : 'UTC+1' : 'de' }}</span>
+              <span *ngSwitchCase="3" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'dd:MM' : 'UTC+1' : 'de' }}</span>
+            </ng-container>
           </div>
           <div class="lower-line">
             <span class="last-message">{{ chat_data.chat.last_message.message }}</span>

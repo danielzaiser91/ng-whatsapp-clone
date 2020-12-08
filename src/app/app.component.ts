@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { subDays } from 'date-fns';
 import deepCopy from 'src/assets/js/deepCopy';
 import { chat as sample_chat } from './sample_chat';
 
@@ -15,10 +16,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const sample = sample_chat[0];
+    const today = Date.now();
     Array(10).fill(0).map((_,i)=>{
       const sample_with_id = deepCopy(sample);
       sample_with_id.chat_id = i;
       sample_with_id.chat.contact.id = i;
+      sample_with_id.chat.last_message.date = subDays(today, i);
       return this.chats.push(sample_with_id)
     })
   }

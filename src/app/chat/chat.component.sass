@@ -9,19 +9,24 @@
     background-image: url("/assets/images/background/chat-bg-1.png")
   .chat-message
     align-self: flex-start
-    margin: 8px 0
     min-width: 100px
     max-width: 500px
-  .send-by-me
-    background-color: $chat-color-me
-    svg-icon
-      top: -5px
-      right: -8px
-      color: $chat-color-me
-  .send-by-them
-    background-color: $chat-color-them
-    svg-icon
-      transform: rotateY(180deg)
-      top: -5px
-      left: -8px
-      color: $chat-color-them
+    padding: 2px 12px 13px 9px
+    &.send-by-me
+      background-color: $chat-color-me
+      border-radius: 8px 0 8px 8px
+      svg-icon
+        top: -5px
+        right: -8px
+        color: $chat-color-me
+    &.send-by-them
+      background-color: $chat-color-them
+      border-radius: 0 8px 8px 8px
+      svg-icon
+        transform: rotateY(180deg)
+        top: -5px
+        left: -8px
+        color: $chat-color-them
+    .send-at
+      bottom: 2px
+      right: 4px
