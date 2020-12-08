@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { chat as sample_chat } from '../sample_chat';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contacts',
@@ -7,12 +6,14 @@ import { chat as sample_chat } from '../sample_chat';
   styleUrls: ['./contacts.component.sass']
 })
 export class ContactsComponent implements OnInit {
-  chats: any[] = [];
+  @Input() chats: any[] = [];
+  @Output() clickedChatEvent = new EventEmitter;
 
   constructor() { }
 
-  ngOnInit(): void {
-    const sample = sample_chat[0];
-    Array(10).fill(0).map(()=>this.chats.push(sample))
+  ngOnInit(): void {}
+
+  clickedChat(chat_id: number) {
+    this.clickedChatEvent.emit(chat_id)
   }
 }

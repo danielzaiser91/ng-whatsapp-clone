@@ -7,7 +7,7 @@
         </div>
         <div class="d-flex f-70 flex-column justify-content-center">
           <div class="upper-line d-flex justify-content-between">
-            <span class="name">{{ chat_data.chat.contact.name }}</span>
+            <span class="name">{{ chat_data.chat.contact.name }}{{chat_data.chat.contact.id}}</span>
             <span class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'EEEE' : 'GMT' : 'de' }}</span>
           </div>
           <div class="lower-line">

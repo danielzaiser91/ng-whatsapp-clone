@@ -1,6 +1,7 @@
 export const chat = [
   {
     type: 'single_chat', // single_chat or group_chat
+    chat_id: 1,
     chat: {
       contact: {
         name: 'Martin',
