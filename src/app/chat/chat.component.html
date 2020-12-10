@@ -30,9 +30,9 @@
       <button class="choose-sticker">4</button>
       <button class="attach-file">#</button>
     </div>
-    <input type="text" class="input-field" placeholder="Type a message" [(ngModel)]="inputValue">
+    <input (keydown.enter)="onSendInput()" type="text" class="input-field" placeholder="Type a message" [(ngModel)]="inputValue">
     <button>
-      <button *ngIf="!!inputValue; else mic" class="send-button">></button>
+      <button (click)="onSendInput()" *ngIf="!!inputValue; else mic" class="send-button">></button>
       <ng-template #mic>
         <button class="audio-button">O</button>
       </ng-template>

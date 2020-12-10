@@ -1,7 +1,7 @@
 <div class="contacts-window h-100">
   <ng-container *ngFor="let chat_data of chats">
     <ng-container *ngIf="chat_data.type == 'single_chat'">
-      <div class="contact-pill text-white d-flex" [class.highlighted]="chat_data.chat_id == active_id">
+      <div (click)="changeActiveChatTo(chat_data.chat_id)" class="contact-pill text-white d-flex" [class.highlighted]="chat_data.chat_id == active_id">
         <div class="profile-pic f-20">
           <img class="h-100" src="{{ chat_data.chat.contact.profile_pic }}" alt="">
         </div>

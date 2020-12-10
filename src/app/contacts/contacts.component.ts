@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { isThisWeek, isToday, startOfWeek } from 'date-fns'
+import { ChatService } from '../chat-service.service';
 
 @Component({
   selector: 'app-contacts',
@@ -7,17 +8,21 @@ import { isThisWeek, isToday, startOfWeek } from 'date-fns'
   styleUrls: ['./contacts.component.sass']
 })
 export class ContactsComponent implements OnInit {
-  @Input() chats: any[] = [];
-  @Input() active_id: number = 0;
+  chats: any[] = [];
+  active_id: number = 0;
 
   @Output() clickedChatEvent = new EventEmitter;
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.chats = this.chatService.getChats();
+    this.active_id = this.chatService.getActiveId();
+  }
 
-  clickedChat(chat_id: number) {
-    this.clickedChatEvent.emit(chat_id)
+  changeActiveChatTo(chat_id: number) {
+    this.active_id = chat_id;
+    this.chatService.setActiveId(chat_id);
   }
 
   public dateBefore(date: Date): number {

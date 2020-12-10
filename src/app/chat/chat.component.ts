@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { ChatService } from '../chat-service.service'
 
 @Component({
   selector: 'app-chat',
@@ -36,23 +37,23 @@ import { Component, Input, OnInit } from '@angular/core';
   ]
 })
 export class ChatComponent implements OnInit {
-  @Input() chats: any[] = [];
-  @Input() active_id: number = 0;
   complete_chat: any[] = [];
   inputValue: string = '';
   showEmojiMenu: boolean = false;
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
-    this.fillChat();
+    this.chatService.active_id.subscribe(() => this.setActiveChat());
+    this.complete_chat = this.chatService.getActiveChat();
   }
 
-  public fillChat(): void {
-    this.complete_chat = this.chats.find(v=>v.chat_id == this.active_id).chat.complete_chat
+  setActiveChat() {
+    this.complete_chat = this.chatService.getActiveChat();
   }
 
-  output(v: any) {
-    console.log(v);
+  onSendInput() {
+    this.chatService.addMessageToActiveChat(this.inputValue);
+    this.inputValue = '';
   }
 }
