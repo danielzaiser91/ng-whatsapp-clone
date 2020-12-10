@@ -10,6 +10,8 @@ import { ChatComponent } from './chat/chat.component';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localeDe);
 
@@ -21,9 +23,11 @@ registerLocaleData(localeDe);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule, 
-    AngularSvgIconModule.forRoot()
+    AppRoutingModule, // enable Angular Router
+    HttpClientModule, // required for AngularSvgIconModule
+    AngularSvgIconModule.forRoot(), // allow svg rendering
+    FormsModule, // two way input binding
+    BrowserAnimationsModule // add Animations to ngIf / ngFor
   ],
   providers: [
     DatePipe,

@@ -1,6 +1,6 @@
-<div class="chat-window-outer h-100 position-relative">
+<div class="chat-window-outer d-flex flex-column h-100 justify-content-end position-relative">
   <div class="chat-bg h-100 w-100 position-absolute"></div>
-  <div class="chat-window-inner h-100 d-flex flex-column-reverse">
+  <div class="chat-window-inner">
     <div class="chat-history d-flex flex-column">
       <ng-container *ngFor="let message_data of complete_chat">
         <div *ngIf="message_data.send_by == 1; else sendByThem" class="chat-message position-relative d-inline-block send-by-me align-self-end"> <!-- align-self-end wenn send_by: 1 -->
@@ -17,5 +17,25 @@
         </ng-template>
       </ng-container>
     </div>
+  </div>
+  <div class="input-bar w-100 position-relative p-2 d-flex">
+    <div class="d-flex o-hidden" *ngIf="!showEmojiMenu" [@delayShow]>
+      <button class="emoji-menu" (click)="showEmojiMenu = !showEmojiMenu">:)</button>
+      <button class="attach-file">#</button>
+    </div>
+    <div class="d-flex o-hidden" *ngIf="showEmojiMenu" [@inOutAnimation]>
+      <button class="close-emoji-menu" (click)="showEmojiMenu = false">x</button>
+      <button class="emoji-menu" (click)="showEmojiMenu = true">:)</button>
+      <button class="choose-gif">3</button>
+      <button class="choose-sticker">4</button>
+      <button class="attach-file">#</button>
+    </div>
+    <input type="text" class="input-field" placeholder="Type a message" [(ngModel)]="inputValue">
+    <button>
+      <button *ngIf="!!inputValue; else mic" class="send-button">></button>
+      <ng-template #mic>
+        <button class="audio-button">O</button>
+      </ng-template>
+    </button>
   </div>
 </div>
