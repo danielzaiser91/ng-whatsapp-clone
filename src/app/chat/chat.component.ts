@@ -56,4 +56,8 @@ export class ChatComponent implements OnInit {
     this.chatService.addMessageToActiveChat(this.inputValue);
     this.inputValue = '';
   }
+
+  addRandomResponse() {
+    this.chatService.addMessageToActiveChat(this.chatService.getRandomSentence(), 0);
+  }
 }

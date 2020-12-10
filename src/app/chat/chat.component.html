@@ -1,5 +1,6 @@
 <div class="chat-window-outer d-flex flex-column h-100 justify-content-end position-relative">
   <div class="chat-bg h-100 w-100 position-absolute"></div>
+  <button (click)="addRandomResponse()" class="btn btn-primary add-random-response position-absolute">add Random Response</button>
   <div class="chat-window-inner">
     <div class="chat-history d-flex flex-column">
       <ng-container *ngFor="let message_data of complete_chat">
