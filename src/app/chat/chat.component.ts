@@ -6,14 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.sass'],
   animations: [
-    trigger('delayShow',
+    trigger('emojiEnterDelay',
     [ transition(':enter', [
       style({ width: 0 }),
       animate('700ms 1s', style({ width: 78 }))
     ]) ]
     ),
     trigger(
-      'inOutAnimation', 
+      'emojiMenuToggle', 
       [
         transition(
           ':enter', 

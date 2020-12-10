@@ -19,11 +19,11 @@
     </div>
   </div>
   <div class="input-bar w-100 position-relative p-2 d-flex">
-    <div class="d-flex o-hidden" *ngIf="!showEmojiMenu" [@delayShow]>
+    <div class="d-flex o-hidden" *ngIf="!showEmojiMenu" [@emojiEnterDelay]>
       <button class="emoji-menu" (click)="showEmojiMenu = !showEmojiMenu">:)</button>
       <button class="attach-file">#</button>
     </div>
-    <div class="d-flex o-hidden" *ngIf="showEmojiMenu" [@inOutAnimation]>
+    <div class="d-flex o-hidden" *ngIf="showEmojiMenu" [@emojiMenuToggle]>
       <button class="close-emoji-menu" (click)="showEmojiMenu = false">x</button>
       <button class="emoji-menu" (click)="showEmojiMenu = true">:)</button>
       <button class="choose-gif">3</button>
