@@ -1,7 +1,7 @@
 <div class="chat-window-outer d-flex flex-column h-100 justify-content-end position-relative">
   <div class="chat-bg h-100 w-100 position-absolute"></div>
-  <button (click)="addRandomResponse()" class="btn btn-primary add-random-response position-absolute">add Random Response</button>
-  <div class="chat-window-inner">
+  <button (click)="addRandomResponse()" class="btn btn-sm btn-primary add-random-response position-absolute">add Random Response</button>
+  <div class="chat-window-inner" #chatWindow>
     <div class="chat-history d-flex flex-column">
       <ng-container *ngFor="let message_data of complete_chat">
         <div *ngIf="message_data.send_by == 1; else sendByThem" class="chat-message position-relative d-inline-block send-by-me align-self-end"> <!-- align-self-end wenn send_by: 1 -->
@@ -18,6 +18,7 @@
         </ng-template>
       </ng-container>
     </div>
+    <button (click)="scrollChatBottom()" class="btn btn-dark rounded-circle position-absolute scroll-button">v</button>
   </div>
   <div class="input-bar w-100 position-relative p-2 d-flex">
     <div class="d-flex o-hidden" *ngIf="!showEmojiMenu" [@emojiEnterDelay]>

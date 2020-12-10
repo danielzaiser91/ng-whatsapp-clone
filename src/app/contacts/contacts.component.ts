@@ -31,4 +31,8 @@ export class ContactsComponent implements OnInit {
     if(date < startOfWeek(Date.now())) return 3;
     else return 0;
   }
+
+  shorten(text: string): string {
+    return text.length < 30 ? text : text.substring(0,22)+'...';
+  }
 }

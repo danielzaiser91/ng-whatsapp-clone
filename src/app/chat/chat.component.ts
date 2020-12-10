@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from '../chat-service.service'
 
 @Component({
@@ -40,16 +40,17 @@ export class ChatComponent implements OnInit {
   complete_chat: any[] = [];
   inputValue: string = '';
   showEmojiMenu: boolean = false;
+  @ViewChild('chatWindow') chatWindow!: ElementRef;
 
   constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
     this.chatService.active_id.subscribe(() => this.setActiveChat());
-    this.complete_chat = this.chatService.getActiveChat();
+    this.complete_chat = this.chatService.getActiveChat().complete_chat;
   }
 
   setActiveChat() {
-    this.complete_chat = this.chatService.getActiveChat();
+    this.complete_chat = this.chatService.getActiveChat().complete_chat;
   }
 
   onSendInput() {
@@ -59,5 +60,9 @@ export class ChatComponent implements OnInit {
 
   addRandomResponse() {
     this.chatService.addMessageToActiveChat(this.chatService.getRandomSentence(), 0);
+  }
+  scrollChatBottom() {
+    this.chatWindow.nativeElement.scrollTop = this.chatWindow.nativeElement.scrollHeight;
+    //document.querySelector('.chat-window-inner').scrollTop = document.querySelector('.chat-window-inner').scrollHeight
   }
 }

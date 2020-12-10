@@ -1,7 +1,7 @@
 <div class="contacts-window h-100">
   <ng-container *ngFor="let chat_data of chats">
     <ng-container *ngIf="chat_data.type == 'single_chat'">
-      <div (click)="changeActiveChatTo(chat_data.chat_id)" class="contact-pill text-white d-flex" [class.highlighted]="chat_data.chat_id == active_id">
+      <div (click)="changeActiveChatTo(chat_data.chat_id)" class="contact-pill text-white d-flex o-hidden" [class.highlighted]="chat_data.chat_id == active_id">
         <div class="profile-pic f-20">
           <img class="h-100" src="{{ chat_data.chat.contact.profile_pic }}" alt="">
         </div>
@@ -11,11 +11,11 @@
             <ng-container [ngSwitch]="dateBefore(chat_data.chat.last_message.date)">
               <span *ngSwitchCase="1" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'HH:mm' : 'UTC+1' : 'de' }}</span>
               <span *ngSwitchCase="2" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'EEEE' : 'UTC+1' : 'de' }}</span>
-              <span *ngSwitchCase="3" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'dd:MM' : 'UTC+1' : 'de' }}</span>
+              <span *ngSwitchCase="3" class="last-time small pr-3 text-white-transparent">{{ chat_data.chat.last_message.date | date : 'dd.MM' : 'UTC+1' : 'de' }}</span>
             </ng-container>
           </div>
           <div class="lower-line">
-            <span class="last-message">{{ chat_data.chat.last_message.message }}</span>
+            <span class="last-message">{{ shorten(chat_data.chat.last_message.message) }}</span>
             <span class="options-icons small pr-3">
               <!-- mute icon und options-icon (mit dropdown) einfügen -->
             </span>
