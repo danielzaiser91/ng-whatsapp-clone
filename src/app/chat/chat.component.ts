@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ChatService } from '../chat-service.service'
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChatService } from '../chat.service'
 
 @Component({
   selector: 'app-chat',
@@ -63,6 +63,7 @@ export class ChatComponent implements OnInit {
   }
   scrollChatBottom() {
     this.chatWindow.nativeElement.scrollTop = this.chatWindow.nativeElement.scrollHeight;
+    //TODO: Autoscroll on new message
     //document.querySelector('.chat-window-inner').scrollTop = document.querySelector('.chat-window-inner').scrollHeight
   }
 }

@@ -1,0 +1,15 @@
+<div class="align-items-center d-flex flex-column h-100 justify-content-center mx-auto text-center w-25">
+  <h1>Login</h1>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="name">Benutzername:</label>
+      <input 
+        id="name" class="form-control" placeholder="Benutzernamen eingeben..." type="text"
+        required [(ngModel)]="user.name" name="name" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name ist ungültig
+        </div>
+      <button class="btn btn-primary mt-3" type="submit" [disabled]="!loginForm.form.valid">Einloggen</button>
+    </div>
+  </form>
+</div>

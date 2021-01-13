@@ -3,16 +3,16 @@
   <button (click)="addRandomResponse()" class="btn btn-sm btn-primary add-random-response position-absolute">add Random Response</button>
   <div class="chat-window-inner" #chatWindow>
     <div class="chat-history d-flex flex-column">
-      <ng-container *ngFor="let message_data of complete_chat">
-        <div *ngIf="message_data.send_by == 1; else sendByThem" class="chat-message position-relative d-inline-block send-by-me align-self-end"> <!-- align-self-end wenn send_by: 1 -->
-          <span class="text-white text-90">{{ message_data.message }}</span>
-          <span class="text-white-transparent send-at text-70 position-absolute">{{ message_data.date | date : 'HH:mm' : 'UTF+1' : 'de' }}</span>
+      <ng-container *ngFor="let message of complete_chat">
+        <div *ngIf="message.send_by == 1; else sendByThem" class="chat-message position-relative d-inline-block send-by-me align-self-end"> <!-- align-self-end wenn send_by: 1 -->
+          <span class="text-white text-90">{{ message.content }}</span>
+          <span class="text-white-transparent send-at text-70 position-absolute">{{ message.date | date : 'HH:mm' : 'UTF+1' : 'de' }}</span>
           <svg-icon class="position-absolute" src="assets/svgs/chat-corner.svg" [svgStyle]="{ 'width':'8px','height':'13px' }"></svg-icon>
         </div>
         <ng-template #sendByThem>
           <div class="chat-message position-relative d-inline-block send-by-them align-self-start"> <!-- align-self-end wenn send_by: 1 -->
-            <span class="text-white text-90">{{ message_data.message }}</span>
-            <span class="text-white-transparent send-at text-70 position-absolute">{{ message_data.date | date : 'HH:mm' : 'UTF+1' : 'de' }}</span>
+            <span class="text-white text-90">{{ message.content }}</span>
+            <span class="text-white-transparent send-at text-70 position-absolute">{{ message.date | date : 'HH:mm' : 'UTF+1' : 'de' }}</span>
             <svg-icon class="position-absolute" src="assets/svgs/chat-corner.svg" [svgStyle]="{ 'width':'8px','height':'13px' }"></svg-icon>
           </div>
         </ng-template>

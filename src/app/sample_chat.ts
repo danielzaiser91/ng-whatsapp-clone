@@ -1,4 +1,6 @@
-export const chat = [
+import Chat from './.interfaces/chat'
+
+export const chat: Chat[] = [
   {
     type: 'single_chat', // single_chat or group_chat
     chat_id: 1,
@@ -18,20 +20,20 @@ export const chat = [
       complete_chat: [
         {
           send_by: 1, // 0 = Kontakt // 1 = ich
-          message: 'Warum machst du sowas?',
+          content: 'Warum machst du sowas?',
           date: new Date('December 07, 2020 18:39:00'),
-          status: 3 // 0 - nicht gesendet / 1 - gesendet / 2 - angekommen / 3 - gelesen
+          status: 3
         },
         {
           send_by: 0,
-          message: 'Nur so :)',
+          content: 'Nur so :)',
           date: new Date('December 07, 2020 18:39:59'),
           status: 3
         }
       ],
       last_message: {
         send_by: 0,
-        message: 'Nur so :)',
+        content: 'Nur so :)',
         date: new Date('December 08, 2020 18:39:59'),
         status: 3
       }

@@ -33,14 +33,12 @@
             "styles": [
               "src/styles.sass"
             ],
-            "scripts": [
-              "src/assets/js/deepCopy.ts"
-            ],
+            "scripts": [],
             "stylePreprocessorOptions": {
-                "includePaths": [
-                  "src/assets/stylesheets/"
-                ]
-              }
+              "includePaths": [
+                "src/assets/stylesheets/"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -134,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "ng-whatsapp"
+  "defaultProject": "ng-whatsapp",
+  "cli": {
+    "analytics": "1a21c2c2-98d1-402b-a587-28f5f4b1e7ff"
+  }
 }

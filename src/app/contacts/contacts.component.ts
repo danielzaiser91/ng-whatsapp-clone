@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { isThisWeek, isToday, startOfWeek } from 'date-fns'
-import { ChatService } from '../chat-service.service';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-contacts',

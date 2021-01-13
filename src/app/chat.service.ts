@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { subDays } from 'date-fns';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import deepCopy from 'src/assets/js/deepCopy';
+import deepCopy from 'src/assets/scripts/deepCopy';
+import Chat from './.interfaces/chat';
 import { chat as sample_chat } from './sample_chat';
 import { sentences } from './sentences';
 
@@ -53,7 +54,7 @@ export class ChatService {
     return sentences[i];
   }
 
-  chatFixture() {
+  chatFixture(): Chat[] {
     const sample = sample_chat[0];
     const today = Date.now();
     return Array(10).fill(0).map((_,i)=>{

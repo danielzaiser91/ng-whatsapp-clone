@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
 
 registerLocaleData(localeDe);
 
@@ -19,7 +21,9 @@ registerLocaleData(localeDe);
   declarations: [
     AppComponent,
     ContactsComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
